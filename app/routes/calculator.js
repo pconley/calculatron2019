@@ -5,7 +5,6 @@ export default Route.extend({
     return {
         value: 0,
         register: null,
-        // names: ['Marie Curie', 'Mae Jemison', 'Albert Hofmann']
     };
   }
 });

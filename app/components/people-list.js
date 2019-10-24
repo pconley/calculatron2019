@@ -9,6 +9,17 @@ export default Component.extend({
   decimalDisabled: false,
   functionsDisabled: false,
   clearOnNextDigit: false,
+  setStartState: function(){
+    // EXCEPT FOR VALUE
+    places = 0;
+    register = null;
+    operation = "";
+    this.set('value', value);
+    this.set('register', register);
+    this.set("functionsDisabled",false);
+    this.set("decimalDisabled",false);
+    this.set("clearOnNextDigit",false);
+  },
   actions: {
     clickOperation(oper) {
         console.log("oper", oper, register, value)
@@ -28,14 +39,13 @@ export default Component.extend({
           this.clearOnNextDigit = false
       }
       if( this.decimalDisabled ){
-          // we are entering after the decimal poont
-          places++;
+          // we are entering after the decimal point
+          places++; // limit to N places???
           var fraction = digit * (10 ** -places);
           value += fraction;
           // js floating point sucks
           var text = value.toFixed(places);
           this.set('value', text);
-
       } else {
         value = 10*value + digit;
         this.set('value', value);
@@ -43,10 +53,7 @@ export default Component.extend({
     },
     clickClear(){
         value = 0;
-        places = 0;
-        this.set('value', 0);
-        this.set("functionsDisabled",false);
-        this.set("decimalDisabled",false);
+        this.setStartState();
     },
     clickNegate(){
         value *= -1;
@@ -57,7 +64,9 @@ export default Component.extend({
         this.set('value', value);
     },
     clickDecimal(){
+        // show decimal on display
         this.set('value', value+".");
+        // flag next entries as fractions
         this.set("decimalDisabled",true);
     },
     clickEquals(){
@@ -76,12 +85,9 @@ export default Component.extend({
                 value = register / value;
                 break;
         }
-        operation = ""
-        console.log(value)
+        console.log("equals", value);
         this.set('value', value);
-        this.set('register', 0);
-        this.clearOnNextDigit = true;
-        this.set("functionsDisabled",false);
+        this.setStartState();
     }
   }
 });
