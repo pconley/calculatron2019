@@ -2,6 +2,10 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   model() {
-    return ['Marie Curie', 'Mae Jemison', 'Albert Hofmann'];
+    return {
+        value: 0,
+        register: null,
+        names: ['Marie Curie', 'Mae Jemison', 'Albert Hofmann']
+    };
   }
 });

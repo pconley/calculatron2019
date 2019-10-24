@@ -1,0 +1,20 @@
+.digit-button {
+    width: 80px !important;
+    margin-bottom: 5px;
+}
+
+.double-button {
+    /* include the margin space */
+    width: 165px !important;
+    margin-bottom: 5px;
+}
+
+.function-button {
+    width: 60px !important;
+    margin-bottom: 5px;
+}
+
+.value-field {
+    width: 300px !important;
+    margin-bottom: 15px;
+}

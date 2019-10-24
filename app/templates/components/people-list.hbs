@@ -1,7 +1,59 @@
-<h2>{{@title}}</h2>
 
-<ul>
-  {{#each @people as |person|}}
-    <li>{{person}}</li>
-  {{/each}}
-</ul>
+{{!-- <div class="alert alert-secondary" role="alert">
+  A simple secondary alert—check it out!
+</div> --}}
+
+<input class="form-control form-control-lg value-field" type="text" placeholder="{{value}}">
+
+<div>
+    <button {{action "clickClear" }} type="button" class="btn btn-primary digit-button">C</button>
+    <button {{action "clickNegate" }} type="button" class="btn btn-primary digit-button">+/-</button>
+    <button {{action "clickPercent" }} type="button" class="btn btn-primary digit-button">%</button>
+    <button {{action "clickOperation" '/'}} 
+        type="button" class="btn btn-warning function-button" 
+        disabled={{functionsDisabled}}
+    >/</button>
+</div>
+
+<div>
+  <button {{action "clickDigit" 7}} type="button" class="btn btn-primary digit-button">7</button>
+  <button {{action "clickDigit" 8}} type="button" class="btn btn-primary digit-button">8</button>
+  <button {{action "clickDigit" 9}} type="button" class="btn btn-primary digit-button">9</button>
+  <button {{action "clickOperation" '*'}} 
+    type="button" class="btn btn-warning function-button" 
+     disabled={{functionsDisabled}}
+  >*</button>
+</div>
+
+<div>
+  <button {{action "clickDigit" 4}} type="button" class="btn btn-primary digit-button">4</button>
+  <button {{action "clickDigit" 5}} type="button" class="btn btn-primary digit-button">5</button>
+  <button {{action "clickDigit" 6}} type="button" class="btn btn-primary digit-button">6</button>
+  <button {{action "clickOperation" '-'}} 
+    type="button" class="btn btn-warning function-button" 
+    disabled={{functionsDisabled}}
+  >-</button>
+</div>
+
+<div>
+  <button {{action "clickDigit" 1}} type="button" class="btn btn-primary digit-button">1</button>
+  <button {{action "clickDigit" 2}} type="button" class="btn btn-primary digit-button">2</button>
+  <button {{action "clickDigit" 3}} type="button" class="btn btn-primary digit-button">3</button>
+  <button {{action "clickOperation" '+'}} 
+    type="button" class="btn btn-warning function-button" 
+    disabled={{functionsDisabled}}
+  >+</button>
+</div>
+<div>
+  <button width={{100px}} {{action "clickDigit" 0}} type="button" class="btn btn-primary double-button">0</button>
+  <button {{action "clickDecimal"}} type="button" class="btn btn-primary digit-button"
+    disabled={{decimalDisabled}}
+  >.</button>
+  <button {{action "clickEquals" '='}} 
+    type="button" class="btn btn-warning function-button" 
+  >=</button>
+</div>
+
+<div>Register: {{register}}</div>
+
+
