@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 
 var value = 0;
-var operation;
+var operation = "";
 var register = null;
 var places = 0;
 
@@ -76,6 +76,7 @@ export default Component.extend({
                 value = register / value;
                 break;
         }
+        operation = ""
         console.log(value)
         this.set('value', value);
         this.set('register', 0);

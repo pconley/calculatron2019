@@ -1,3 +1,7 @@
+body {
+    margin: 25px 50px 75px 100px;
+  }
+
 .digit-button {
     width: 80px !important;
     margin-bottom: 5px;
