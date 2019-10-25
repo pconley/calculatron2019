@@ -88,6 +88,7 @@ export default Component.extend({
         console.log("equals", value);
         this.set('value', value);
         this.setStartState();
+        this.set("clearOnNextDigit",true);
     }
   }
 });
