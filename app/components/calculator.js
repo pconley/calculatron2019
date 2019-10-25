@@ -62,6 +62,7 @@ export default Component.extend({
     clickPercent(){
         value *= 0.01;
         this.set('value', value);
+        this.set("clearOnNextDigit",true);
     },
     clickDecimal(){
         // show decimal on display
